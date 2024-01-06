@@ -1,0 +1,8 @@
+In Python - die Konvertierung von NodeID und ChildID zu Volltext Namen. Passt das? 
+Eine Config für die gleichen Namensgebungen sind zwar gut aber wahrscheinlich overkill, da du "einfach" auf gleiche Namen gehen musst
+Manches wie Zisterne etc. muss noch sauber gebunden werden gerade Namentlich und halt von der Zuordnung stimmen
+
+In der JS Datei - Temperatur macht Magic. Woher kommt die obere rechte Temperatur Wert. Die NodeID  ";0;1;0;0" hilft nicht wirklich
+In der CSV sind viel mehr Werte und Punkte angegeben als in der UI angezeigt werden. WARUM?
+Der Timeout in Temperatur und allem anderen - Wann soll der Greifen ? Und warum
+

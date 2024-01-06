@@ -1,0 +1,47 @@
+<!-- Stand 10.02.2023 -->
+
+<!DOCTYPE html>
+<html>
+<html lang="de">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<head>
+	<link rel="stylesheet" href="stylesheet.css" type="text/css" />
+	<title>Dein Toller Titel</title>
+</head>
+
+<body>
+	<header>
+		<div id="KOPF_X" class="kopf horizontalParent">
+			<div id="UhrZeitText" class="horizontalChild left" ></div>
+			<div class="horizontalChild center" style="color: #ffffff;">undefined</div>
+			<div id="TemperaturText" class="horizontalChild right"  style="color: red;">7.2°C</div>
+		</div>
+	
+	</header>
+
+
+	<main>
+		<div id="TAB1_X" class="haupt" >
+			<div class="horizontalParent">
+				<div class="horizontalChild left" >Kellertreppe</div>
+				<div class="horizontalChild center" >7.3°C</div>
+				<div class="horizontalChild right" style="font-size: 15px; transform: translate(0%, 10%);">3d 0h 27'</div>
+			</div>
+			<div class="horizontalParent">
+				<div class="horizontalChild left" >Zisterne</div>
+				<div class="horizontalChild center" >99%</div>
+				<div class="horizontalChild right" style=" font-size: 15px; transform: translate(0%, 10%);">3d 0h 23'</div>
+			</div>
+		</div>
+		
+	</main>
+
+
+	<script src="gui4.js"> </script>
+	<script> setInterval(function() { loopEverySecond(); }, 1000); </script>
+
+</body>
+
+</html>

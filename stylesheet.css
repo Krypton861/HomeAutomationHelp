@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'palanquinlight';
+    src: url('fonts/palanquin-light-webfont.woff2') format('woff2'),
+         url('fonts/palanquin-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'palanquinmedium';
+    src: url('fonts/palanquin-medium-webfont.woff2') format('woff2'),
+         url('fonts/palanquin-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body {
+	font-family: 'palanquinlight';
+	font-weight : normal;
+	font-style : normal;
+	line-height : 1.5;
+	background-color : #000000;
+	color : #ffffff;
+}
+
+
+.kopf {
+	table-layout: auto; 
+	width: 100%;
+	/* border: 1px solid white;  */
+	border-collapse : collapse;
+	border-spacing : 0;
+	font-size : 100px;
+}
+
+
+.haupt {
+	/* table-layout: auto; */
+	width: 100%;
+	border-collapse : collapse;
+	/* border: 1px solid white;*/
+	border-spacing : 0;
+	font-size : 50px;
+}
+
+
+img {
+    height: 40px;
+    width: 40px;
+    margin: auto;
+    vertical-align : bottom;
+	transform: translate(0%, -5%);
+}
+
+
+/* PPPEEETTAASS */
+
+/* Dein Wrapper für alles was horizontal nebeneinander muss */
+.horizontalParent {
+    display: flex;
+    margin-bottom: 5px; 
+}
+
+/* Dein Element für alles, was in einem horizontalParent ist.*/
+.horizontalChild {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 5px; /* Adjust as needed for spacing within columns */
+}
+
+.horizontalChild.left {
+	width: 35%; 
+	text-align: left;
+}
+
+.horizontalChild.center {
+	width: 30%; 
+	text-align: center
+}
+
+.horizontalChild.right {
+	width: 35%; 
+	text-align: right; 
+}
