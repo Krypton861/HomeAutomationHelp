@@ -68,7 +68,6 @@ def compareString(Format, stringToCheck):
 def checkSensorTyp(stringToCheck):
     #Im Json Objekt hole alles was unter "Sensortyp" steht.
     typeData = configData["Sensortyp"]
-    #print(typeData)
 
     #Iteriere über alle Elemente. z.b. Element 0 = 'Status' Element 1 = 'x;x;1;x;16;x'
     for elem in typeData.items():
@@ -82,7 +81,12 @@ def checkSensorTyp(stringToCheck):
 def checkObjektTyp(stringToCheck):
     #Im Json Objekt hole alles was unter "Sensortyp" steht.
     typeData = configData["Objekt"]
-    #print(typeData)
+
+    #Sonder Condition für Baterie. Da die ChildID mit Batterie überschrieben wird. 
+    #Daher check for 255 auf 2. String und wenn setze "einfach" auf 0 weil Sensor Typ hier nicht bestimmt wird.
+    if([element.strip() for element in stringToCheck.split(';')][1] == "255"):
+        #Da es die 255 im richtigen bzw. zweiten Element gibt -> replace first 255 mit 0
+        stringToCheck = stringToCheck.replace('255', '0', 1) 
 
     #Iteriere über alle Elemente. z.b. Element 0 = 'Status' Element 1 = 'x;x;1;x;16;x'
     for elem in typeData.items():
