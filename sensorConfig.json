@@ -1,0 +1,25 @@
+{
+  "Sensortyp": {
+    "Status": "x;x;1;x;16;x",
+    "Level": "x;x;1;x;35;x",
+    "Temperatur": "x;x;1;x;0;x",
+    "Batterie": "x;255;3;x;0;x"
+  },
+  "Objekt": {
+    "Thermometer": "20;0;x;x;x;x",
+    "Carport": "21;0;x;x;x;x",
+    "Kellertreppe": "22;0;x;x;x;x",
+    "Zisternenpegel": "30;0;x;x;x;x",
+    "Pumpe1Aktuell": "30;0;x;x;x;x",
+    "Pumpe2Aktuell": "30;1;x;x;x;x",
+    "Pumpe1Gespeichert": "30;2;x;x;x;x",
+    "Pumpe2Gespeichert": "30;3;x;x;x;x",
+    "Speisekammer": "40;0;x;x;x;x",
+    "Gästeklo": "41;0;x;x;x;x",
+    "Terrasse": "42;0;x;x;x;x",
+    "Bad 1": "43;0;x;x;x;x",
+    "Bad 2": "44;0;x;x;x;x",
+    "Schlafzimmer M": "45;0;x;x;x;x"
+  },
+  "Eigenschaft": ["Wert", "Name", "Zeitstempel"]
+}

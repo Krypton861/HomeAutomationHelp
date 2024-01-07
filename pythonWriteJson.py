@@ -13,17 +13,17 @@ for x in range(1):
     # Unsere Übersetzungstabelle welche Kombination aus NodeID und ChildID zu welchem Volltext Namen führen.
     lookupTable =  {
         20: {
-            0: "MobilesThermometer",
+            0: "MobilesThermometerTemperatur",
             255: "MobilesThermometer_2",
         },
         21:{
             0:"Carport",
             255:"Carport_2"
-        } ,
+        },
         22:{
             0:"Kellertreppe",
             255:"Kellertreppe_2"
-        } ,
+        },
         30:{
             0:"Zisterne_1",
             1:"Zisterne_2",
@@ -31,15 +31,15 @@ for x in range(1):
             3:"Zisterne_4",
             4:"Zisterne_5",
             255:"Zisterne_6"
-        } ,
+        },
         40:{
             0:"Speisekammer",
             255:"Speisekammer_2"
-        } ,
+        },
         41:{
             0:"Gästeklo",
             255:"Gästeklo_2"
-        } ,
+        },
         42:{
             0:"Terasse",
             255:"Terasse_2"

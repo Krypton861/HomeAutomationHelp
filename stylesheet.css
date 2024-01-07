@@ -64,7 +64,7 @@ img {
     margin-bottom: 5px; 
 }
 
-/* Dein Element für alles, was in einem horizontalParent ist.*/
+/* Dein Element für alles, was in einem horizontalParent ist. Wichtig ist Flex, damit es nebeneinander ist*/
 .horizontalChild {
     flex: 1;
     box-sizing: border-box;
