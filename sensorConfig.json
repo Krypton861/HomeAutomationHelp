@@ -21,5 +21,5 @@
     "Bad 2": "44;0;x;x;x;x",
     "Schlafzimmer M": "45;0;x;x;x;x"
   },
-  "Eigenschaft": ["Wert", "Name", "Zeitstempel"]
+  "Eigenschaften": ["Wert", "Name", "Zeitstempel"]
 }
