@@ -19,7 +19,7 @@
     "Terrasse": "42;0;x;x;x;x",
     "Bad 1": "43;0;x;x;x;x",
     "Bad 2": "44;0;x;x;x;x",
-    "Schlafzimmer M": "45;0;x;x;x;x"
+    "Schlafzimmer Matthias": "45;0;x;x;x;x"
   },
   "Eigenschaften": ["Wert", "Name", "Zeitstempel"]
 }

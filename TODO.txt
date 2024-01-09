@@ -1,11 +1,4 @@
-In Python - die Konvertierung von NodeID und ChildID zu Volltext Namen. Passt das? 
-Manches wie Zisterne etc. muss noch sauber def. werden.
-Was sind die "Relevanten" Daten? Command,Ack,Type Payload kann man sicher noch generalisieren oder besser "schreiben". Wenn ja was heißt was? 
-Eine Config für die gleichen Namensgebungen sind zwar gut aber wahrscheinlich overkill, da du "einfach" auf gleiche Namen gehen musst
+Sonderzeichen in der json werden nicht richtig ANzegeigt. -> Einfach keine sonderzeichen nutzen!?!
 
 
-
-In der JS Datei - Temperatur macht Magic. Woher kommt die obere rechte Temperatur Wert. Die NodeID  ";0;1;0;0" hilft nicht wirklich
-In der CSV sind viel mehr Werte und Punkte angegeben als in der UI angezeigt werden. WARUM?
-Der Timeout in Temperatur und allem anderen - Wann soll der Greifen ? Und warum
 

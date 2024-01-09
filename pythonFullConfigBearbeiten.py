@@ -161,12 +161,13 @@ for ts_daten in inputData:
     #######  Alles vorbereitet. Jetzt Output json Datei öffnen und ersetzen oder einfach hinzufügen. Jeh nachdem was es schon gobt.
     #######
 
-    # Open the file and load the JSON data into the variable jsonData
-    with open(outputFilePath, 'r') as file:
-        try: #Wenn die Datei nicht existiert oder Leer ist -> Fehler abfangen
+    #Wenn die Datei nicht existiert oder Leer ist -> Fehler abfangen
+    try:
+        # Open the file and load the JSON data into the variable jsonData
+        with open(outputFilePath, 'r') as file:
             jsonData = json.load(file)
-        except:
-            jsonData = {}
+    except:
+        jsonData = {}
 
     #Wenn es unser Objekt schon gibt -> Finden des Elements um zu Modifizieren
     if objectType in jsonData:

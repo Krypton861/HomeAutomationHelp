@@ -1,5 +1,148 @@
 // Version 4 vom 11.02.2023 mit Akkuabfrage
 
+//Function wird ausgeführt wenn der Inhalt auf der seite erfolgreich Rendered ist.
+document.addEventListener('DOMContentLoaded', function () {
+	const jsonFilePath = 'your_file.json';
+	/*
+	// Fetch the JSON file
+	fetch(jsonFilePath)
+		.then(response => response.json())
+		.then(data => {
+			// Handle the JSON data here
+			console.log(data);
+
+			// You can now use the data as needed
+			// For example, update the DOM with the data
+			// document.getElementById('someElement').innerText = data.someProperty;
+		})
+		.catch(error => {
+			console.error('Error fetching the JSON file:', error);
+		});
+	*/
+
+	const jsonData = {
+		"Terrasse": {
+			"Status": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Bad 2": {
+			"Status": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Speisekammer": {
+			"Status": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Schlafzimmer M": {
+			"Status": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Bad 1": {
+			"Status": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Carport": {
+			"Temperatur": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Kellertreppe": {
+			"Temperatur": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Gästeklo": {
+			"Status": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			},
+			"Batterie": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Pumpe2Aktuell": {
+			"Status": {
+				"Wert": "1",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Pumpe1Gespeichert": {
+			"Status": {
+				"Wert": "2",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Pumpe2Gespeichert": {
+			"Status": {
+				"Wert": "3",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		},
+		"Zisternenpegel": {
+			"Level": {
+				"Wert": "0",
+				"zeitstempel": "2022-01-05 12:34:56"
+			}
+		}
+	};
+
+
+	console.log(jsonData);
+
+	var Terasse = jsonData['Terrasse']
+	var Speisekammer = jsonData['Speisekammer']
+	var Gästeklo = jsonData['Gästeklo']
+	console.log(Terasse);
+	console.log(Speisekammer);
+	console.log(Gästeklo);
+
+	setTestText(jsonData);
+
+	//setUhrzeit();
+	//setTemperatur();
+});
+
 function loopEverySecond() {
 	/*
 	var xhr = new XMLHttpRequest();
@@ -22,29 +165,20 @@ function loopEverySecond() {
 
 	xhr.send();
 	*/
-	const jsonData = [
-		{ name: "MobilesThermometer_2", payload: 100, zeitstempel: 1704020397.61 },
-		{ name: "Zisterne_1", payload: 95, timestamp: 1704020396.61 },
-		{ name: "Terasse", payload: 0, timestamp: 1704021070.16 },
-		{ name: "Bad1", payload: 29, timestamp: 1704021070.65 },
-		{ name: "Bad1", payload: 1, timestamp: 1704021161.6 },
-		{ name: "SchlafzimmerM", payload: 66, timestamp: 1704021161.86 },
-		{ name: "Terasse", payload: 0, timestamp: 1704021956.79 }
-	];
-	console.log(jsonData);
+	var test = "";
 
-	setTestText();
-
-	//setUhrzeit();
-	//setTemperatur();
 }
 
 var zahl = 0;
 
-function setTestText() {
+function setTestText(jsonData) {
 	zahl = zahl + 1;
-	document.getElementById("TestText").innerHTML= "Neue ZahL:" + zahl;
+	document.getElementById("TestText").innerHTML = "Neue ZahL:" + zahl;
 
+
+	for (const element in jsonData) {
+		console.log(element);
+	}
 
 	/*var aufbauen = "";
 	aufbauen += '<div id="TestDivErzeugt" style="background-color: blue; color: red; font-size: 150px;">';
@@ -56,7 +190,7 @@ function setTestText() {
 	//addChild();
 }
 
-function addChild(){
+function addChild() {
 	var parentElement = document.getElementById("TestWrapper");
 
 	var newElement = document.createElement("div");

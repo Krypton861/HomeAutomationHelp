@@ -1,105 +1,105 @@
 {
   "Terrasse": {
     "Status": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Bad 2": {
     "Status": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Speisekammer": {
     "Status": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Schlafzimmer M": {
     "Status": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Bad 1": {
     "Status": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Carport": {
     "Temperatur": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Kellertreppe": {
     "Temperatur": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "G\u00c3\u00a4steklo": {
     "Status": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     },
     "Batterie": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Pumpe2Aktuell": {
     "Status": {
-      "Wert": "1AAAAA",
+      "Wert": "1",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Pumpe1Gespeichert": {
     "Status": {
-      "Wert": "2AAAAA",
+      "Wert": "2",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Pumpe2Gespeichert": {
     "Status": {
-      "Wert": "3AAAAA",
+      "Wert": "3",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   },
   "Zisternenpegel": {
     "Level": {
-      "Wert": "0AAAAA",
+      "Wert": "0",
       "zeitstempel": "2022-01-05 12:34:56"
     }
   }
