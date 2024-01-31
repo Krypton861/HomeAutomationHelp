@@ -66,10 +66,11 @@ img {
 
 /* Dein Element für alles, was in einem horizontalParent ist. Wichtig ist Flex, damit es nebeneinander ist*/
 .horizontalChild {
-    flex: 1;
     box-sizing: border-box;
     padding: 5px; /* Adjust as needed for spacing within columns */
-}
+	font-weight: normal;
+	overflow-wrap: normal; /* break-word auch option*/
+} 
 
 .horizontalChild.left {
 	width: 35%; 
@@ -85,3 +86,7 @@ img {
 	width: 35%; 
 	text-align: right; 
 }
+
+
+
+

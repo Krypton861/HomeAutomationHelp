@@ -1,206 +1,340 @@
 // Version 4 vom 11.02.2023 mit Akkuabfrage
 
+const jsonFilePath = 'snw.json';
+
+//Effektiv alles was in der sensorConfig.json steht. Liste wird verwendet um snw.json Auszuwerten
+const SensorNameList = [
+	"TestElement_DOES NOT EXIST",
+	"Thermometer",
+	"Carport",
+	"Kellertreppe",
+	"Zisternenpegel",
+	"Pumpe1Aktuell",
+	"Pumpe2Aktuell",
+	"Pumpe1Gespeichert",
+	"Pumpe2Gespeichert",
+	"Speisekammer",
+	"Gästeklo",
+	"Terrasse",
+	"Bad 1",
+	"Bad 2",
+	"Schlafzimmer Matthias",
+];
+
+const SensorNameList2 = [
+	["TestElement_DOES NOT EXIST","TestName"],
+	["Thermometer","Thermometer"],
+	["Carport","Carport"],
+	["Kellertreppe","Kellertreppe"],
+	["Zisternenpegel","Zisternenpegel"],
+	["Pumpe1Aktuell","Pumpe1"],
+	["Pumpe2Aktuell","Pumpe2"],
+	["Pumpe1Gespeichert","Pumpe1G"],
+	["Pumpe2Gespeichert","Pumpe2G"],
+	["Speisekammer","Speisekammer"],
+	["Gästeklo","Gästeklo"],
+	["Terrasse","Terrasse"],
+	["Bad 1","Bad 1"],
+	["Bad 2","Bad 2"],
+	["Schlafzimmer Matthias","Schlafzimmer Matthias"],
+];
+
+var localJsonData = {};
+
 //Function wird ausgeführt wenn der Inhalt auf der seite erfolgreich Rendered ist.
 document.addEventListener('DOMContentLoaded', function () {
-	const jsonFilePath = 'your_file.json';
-	/*
+	//For Data from the Server
+	//fetchJsonData();
+
+	const jsonData2 = {
+		"Schlafzimmer M": {
+		  "Status": {
+			"Wert": "0",
+			"zeitstempel": "2024-01-21 17:37:23.799616"
+		  },
+		  "Batterie": {
+			"Wert": "100",
+			"zeitstempel": "2024-01-21 17:37:24.064173"
+		  }
+		},
+		"Bad 2": {
+		  "Status": {
+			"Wert": "0",
+			"zeitstempel": "2024-01-21 17:21:33.241586"
+		  },
+		  "Batterie": {
+			"Wert": "93",
+			"zeitstempel": "2024-01-21 17:21:34.570072"
+		  }
+		},
+		"Carport": {
+		  "Temperatur": {
+			"Wert": "0.7",
+			"zeitstempel": "2024-01-21 17:42:13.056572"
+		  },
+		  "Batterie": {
+			"Wert": "93",
+			"zeitstempel": "2024-01-21 17:42:13.770163"
+		  }
+		},
+		"Kellertreppe": {
+		  "Temperatur": {
+			"Wert": "1.3",
+			"zeitstempel": "2024-01-21 17:42:42.815785"
+		  },
+		  "Batterie": {
+			"Wert": "84",
+			"zeitstempel": "2024-01-21 17:42:43.080348"
+		  }
+		},
+		"Pumpe2Aktuell": {
+		  "Status": {
+			"Wert": "0",
+			"zeitstempel": "2024-01-21 17:22:56.339723"
+		  }
+		},
+		"Pumpe1Gespeichert": {
+		  "Status": {
+			"Wert": "0",
+			"zeitstempel": "2024-01-21 17:22:56.569643"
+		  }
+		},
+		"Pumpe2Gespeichert": {
+		  "Status": {
+			"Wert": "0",
+			"zeitstempel": "2024-01-21 17:22:56.799306"
+		  }
+		},
+		"Zisternenpegel": {
+		  "Level": {
+			"Wert": "99",
+			"zeitstempel": "2024-01-21 17:22:57.261057"
+		  }
+		},
+		"Speisekammer": {
+		  "Status": {
+			"Wert": "0",
+			"zeitstempel": "2024-01-21 17:40:13.625115"
+		  },
+		  "Batterie": {
+			"Wert": "63",
+			"zeitstempel": "2024-01-21 17:40:13.889778"
+		  }
+		},
+		"G\u00e4steklo": {
+		  "Status": {
+			"Wert": "0",
+			"zeitstempel": "2024-01-21 17:41:40.540503"
+		  },
+		  "Batterie": {
+			"Wert": "22",
+			"zeitstempel": "2024-01-21 17:41:41.674170"
+		  }
+		}
+	};
+	
+	var localSensorDataList = getSensorDataList(jsonData2);
+	displaySensorData(localSensorDataList);
+
+
+
+});
+
+function fetchJsonData(){
 	// Fetch the JSON file
+	let jsonData = {};
+
 	fetch(jsonFilePath)
 		.then(response => response.json())
 		.then(data => {
 			// Handle the JSON data here
-			console.log(data);
-
-			// You can now use the data as needed
-			// For example, update the DOM with the data
-			// document.getElementById('someElement').innerText = data.someProperty;
+			jsonData = data;
+			getSensorDataList(jsonData);
 		})
 		.catch(error => {
 			console.error('Error fetching the JSON file:', error);
 		});
-	*/
+	
+}
 
-	const jsonData = {
-		"Terrasse": {
-			"Status": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Bad 2": {
-			"Status": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Speisekammer": {
-			"Status": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Schlafzimmer M": {
-			"Status": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Bad 1": {
-			"Status": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Carport": {
-			"Temperatur": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Kellertreppe": {
-			"Temperatur": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Gästeklo": {
-			"Status": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			},
-			"Batterie": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Pumpe2Aktuell": {
-			"Status": {
-				"Wert": "1",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Pumpe1Gespeichert": {
-			"Status": {
-				"Wert": "2",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Pumpe2Gespeichert": {
-			"Status": {
-				"Wert": "3",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
-		},
-		"Zisternenpegel": {
-			"Level": {
-				"Wert": "0",
-				"zeitstempel": "2022-01-05 12:34:56"
-			}
+function getSensorDataList(jsonData){
+	//Input is the Raw snw.json Format. Output is a filtered List using SensorNameList. Filtering out every Element that does not exist.
+	//Changed to a Object with key: "name", value: JsonData[Elem]
+	var objList = [];
+	SensorNameList.forEach((element) => {
+		objList.push({key: element, value: jsonData[element]});
+	});
+	
+	// Filter out undefined elements -> Does not exist in the snw.json
+	var filteredList = objList.filter(function(element) {
+		return element.value !== undefined;
+	});
+	
+	//console.log(filteredList);
+	return filteredList;
+}
+
+function displaySensorData(sensorDataList){
+	//The Main Wrapper that is the source to all.
+	var mainWrapper = document.getElementById("SensorDataWrapper");
+
+	sensorDataList.forEach((element) => {
+		//The ELement that is around the 3 Text Elems.
+		var parentWrapper = document.createElement("tr"); 
+		parentWrapper.classList.add("horizontalParent");
+
+		//Create the 3 Elements With Name, Value and Battery
+		/* Ist lange form von der FUnktion createChildElement
+		//Left - Der NAME
+		var leftElement = document.createElement("div");
+		leftElement.classList.add("horizontalChild");
+		leftElement.classList.add("left");
+
+		//Center - VALUES
+		var centerElement = document.createElement("div");
+		centerElement.classList.add("horizontalChild");
+		centerElement.classList.add("center");
+
+		//Right
+		var rightElement = document.createElement("div");
+		rightElement.classList.add("horizontalChild");
+		rightElement.classList.add("right");
+		*/
+
+		var leftElement = createChildElement("left");
+		var centerElement = createChildElement("center");
+		var rightElement = createChildElement("right");
+		
+		leftElement.innerHTML = element.key;
+
+		//Zwischenspeicher, um die Farbe anhand dessen zu setzen.
+		var timeDifferenceInSeconds = -1;
+
+		if (element.value.Status !== undefined) {
+			centerElement.innerHTML = element.value.Status.Wert;
+			rightElement.innerHTML = getTimeDifferenceFormated(element.value.Status.zeitstempel);
+			timeDifferenceInSeconds = getTimeDifferenceInMinutes(element.value.Status.zeitstempel);
 		}
-	};
+		else if (element.value.Level !== undefined) {
+			centerElement.innerHTML = element.value.Level.Wert;
+			rightElement.innerHTML = getTimeDifferenceFormated(element.value.Level.zeitstempel);
+			timeDifferenceInSeconds = getTimeDifferenceInMinutes(element.value.Level.zeitstempel);
+		}
+		else if (element.value.Temperatur !== undefined) {
+			centerElement.innerHTML = element.value.Temperatur.Wert;
+			rightElement.innerHTML = getTimeDifferenceFormated(element.value.Temperatur.zeitstempel);
+			timeDifferenceInSeconds = getTimeDifferenceInMinutes(element.value.Temperatur.zeitstempel);
+		}		
 
+		rightElement.style.color = "white";
+		if(timeDifferenceInSeconds >= 120){
+			rightElement.style.color = "red";
+		}
+		else if(timeDifferenceInSeconds > 60){
+			rightElement.style.color = "gray";
+		}
+		
+		
+		parentWrapper.appendChild(leftElement);
+		parentWrapper.appendChild(centerElement);
+		parentWrapper.appendChild(rightElement);
 
-	console.log(jsonData);
+		mainWrapper.appendChild(parentWrapper);
+		//console.log(element);
+	});
+}
 
-	var Terasse = jsonData['Terrasse']
-	var Speisekammer = jsonData['Speisekammer']
-	var Gästeklo = jsonData['Gästeklo']
-	console.log(Terasse);
-	console.log(Speisekammer);
-	console.log(Gästeklo);
-
-	setTestText(jsonData);
-
-	//setUhrzeit();
-	//setTemperatur();
-});
+function createChildElement(className) {
+	var element = document.createElement("th");
+	element.classList.add("horizontalChild");
+	element.classList.add(className);
+	return element;
+  }
 
 function loopEverySecond() {
-	/*
-	var xhr = new XMLHttpRequest();
-	xhr.overrideMimeType("application/json");
-	xhr.open('GET', 'output.json', true);
-
-	xhr.onreadystatechange = function () {
-	if (xhr.readyState == 4 && xhr.status == 200) {
-		var jsonData = JSON.parse(xhr.responseText);
-
-		// Now you can work with the jsonData object
-		console.log(jsonData);
-
-		// Access specific values
-		var value = jsonData.key;
-
-		// Perform further actions with the data
-	}
-	};
-
-	xhr.send();
-	*/
-	var test = "";
+	setUhrzeit();
 
 }
 
-var zahl = 0;
+function getTimeDifferenceFormated(timestampString){
+	//Convert string to propper timestamp
+	var timestamp = new Date(timestampString);
 
-function setTestText(jsonData) {
-	zahl = zahl + 1;
-	document.getElementById("TestText").innerHTML = "Neue ZahL:" + zahl;
+	// Get the current time
+	currentTime = new Date();
 
+	// Calculate the time difference (in milliseconds)
+	var timeDifferenceMs = currentTime - timestamp;
 
-	for (const element in jsonData) {
-		console.log(element);
-	}
+	//Get hour/Minute Differnece
+	var hoursDifference = Math.floor(timeDifferenceMs / (1000 * 60 * 60));
+	var minutesDifference = Math.floor(timeDifferenceMs / (1000 * 60) - (hoursDifference * 60)); //Bei minuten volle Stunden abziehen
 
-	/*var aufbauen = "";
-	aufbauen += '<div id="TestDivErzeugt" style="background-color: blue; color: red; font-size: 150px;">';
-	aufbauen += '"Neue ZahL:"' + zahl;
-	aufbauen += '</div>';
+	// Führende Nullen: Null links dran und dann die zwei ersten schneiden
+	var hoursDifference = ('0' + hoursDifference).slice(-2); // VORSICHT !!! Wird bei einer Stunden Diff von über 100 Stunden die 10 weglassen und bei z.b. 104 -> 04 anzeigen
+	var minutesDifference = ('0' + minutesDifference).slice(-2); 
 
-	document.getElementById("TestWrapper").innerHTML = aufbauen;*/
-
-	//addChild();
+	var anzeigezeit = hoursDifference + ':' + minutesDifference
+	return anzeigezeit;
 }
 
-function addChild() {
-	var parentElement = document.getElementById("TestWrapper");
 
-	var newElement = document.createElement("div");
-	newElement.innerHTML = "Child Text";
-	//newElement.classList.add("Kopf");
-	//newElement.id = "CustomID";
+function getTimeDifferenceInMinutes(timestampString){
+	//Convert string to propper timestamp
+	var timestamp = new Date(timestampString);
 
-	parentElement.appendChild(newElement);
+	// Get the current time
+	currentTime = new Date();
+
+	// Calculate the time difference (in milliseconds)
+	var timeDifferenceMs = currentTime - timestamp;
+
+	//Get hour/Minute Differnece
+	var minutesDifference = Math.floor(timeDifferenceMs / (1000 * 60)); //Bei minuten volle Stunden abziehen
+
+	return minutesDifference;
 }
 
+
+function TestWarumUhrzeitBisherKaputtWar(){
+	
+	var diff5h = new Date()
+	diff5h.setHours(diff5h.getHours() - 5);
+
+	var diff3min = new Date()
+	diff3min.setMinutes(diff3min.setMinutes() - 3 );
+
+	var diffbeides = new Date()
+	diffbeides.setMinutes(diffbeides.getMinutes() - 10);
+	diffbeides.setHours(diffbeides.getHours() - 5);
+
+	//Convert string to propper timestamp
+	var timestamp = diff5h;
+	console.log("timestamp: " + timestamp.getHours());
+
+	// Get the current time
+	currentTime = new Date();
+	console.log("currentTime: " + currentTime.getHours());
+
+	// Calculate the time difference (in milliseconds)
+	var timeDifference = currentTime - timestamp;
+	console.log("timeDifference raw: " + timeDifference);
+	console.log("timeDifference IN Hours. Selbst Errechnet: " + timeDifference/1000/60/60);
+
+	var timeDifference = new Date(currentTime - timestamp);
+	console.log("timeDifference Date(): " + timeDifference);
+	
+	//Get hour/Minute Differnece
+	var hoursDifference = timeDifference.getHours();
+	var minutesDifference = timeDifference.getMinutes();
+
+	// Führende Nullen: Null links dran und dann die zwei ersten schneiden
+	var hoursDifference = ('0' + hoursDifference).slice(-2);
+	var minutesDifference = ('0' + minutesDifference).slice(-2); 
+
+	var anzeigezeit = hoursDifference + ':' + minutesDifference
+	console.log(anzeigezeit);
+}
 
 function setUhrzeit() {
 	// Uhrzeit 
@@ -219,26 +353,6 @@ function setUhrzeit() {
 	document.getElementById("UhrZeitText").innerHTML = anzeigezeit;
 }
 
-function setTemperatur() {
-	// Temperatur in Kopfzeile muss separat aufgerufen werden, hier muss man den Wert händisch bestimmen
-	var temp_wert = temp_oben_rechts(21, 2100)[0];
-	var timeout_wert = temp_oben_rechts(21, 2100)[1];
-
-	//var pref_1 = '<td style="text-align:right; color:white";>';
-	//var pref_2 = '<td style="text-align:right; color:red";>';
-
-	if (timeout_wert < 0) {
-		//anzeigetemperatur += pref_1;
-		document.getElementById("TemperaturText").style.color = "white"
-	}
-	else {
-		//anzeigetemperatur += pref_2;
-		document.getElementById("TemperaturText").style.color = "red"
-	}
-
-	document.getElementById("TemperaturText").innerHTML = temp_wert + "°C";
-
-}
 
 
 // Beautify in TextMate: Ctrl-Shift-H
